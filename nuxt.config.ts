@@ -2,7 +2,8 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/eslint'],
+  ssr: false,
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/eslint', '@vueuse/nuxt'],
   eslint: {
     config: {
       stylistic: true,
@@ -10,5 +11,12 @@ export default defineNuxtConfig({
   },
   typescript: {
     typeCheck: true,
+  },
+  postcss: {
+    plugins: {
+      'autoprefixer': {},
+      'cssnano': {},
+      'postcss-preset-env': {},
+    },
   },
 })
