@@ -5,6 +5,17 @@ useSeoMeta({
   keywords: '日语, 假名, 平假名, 片假名, 罗马音, 练习, 记忆, 学习, 工具, kana, japanese, hiragana, KanaNya, romaji',
 })
 
+const config = useRuntimeConfig()
+useHead({
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: `${config.app.baseURL}favicon.ico`,
+    },
+  ],
+})
+
 const lastQuestion = ref<Question | null>(null)
 const question = ref(generateQuestion())
 const lastOption = ref(0)
