@@ -37,6 +37,7 @@ function choose(option: number) {
   else {
     hasWrong.value = true
   }
+  playPopSound()
 }
 
 [['W', 'w', 'ArrowUp'], ['D', 'd', 'ArrowRight'], ['S', 's', 'ArrowDown'], ['A', 'a', 'ArrowLeft']].forEach((keys, i) => {
@@ -112,6 +113,11 @@ function choose(option: number) {
         </button>
       </div>
     </footer>
+    <audio
+      class="size-0 opacity-0"
+      src="/sound/pop.mp3"
+      preload="auto"
+    />
   </main>
 </template>
 
