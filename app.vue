@@ -3,6 +3,7 @@ const lastQuestion = ref<Question | null>(null)
 const question = ref(generateQuestion())
 const lastOption = ref(0)
 const hasWrong = ref(false)
+const isTipsVisible = ref(true)
 
 const score = ref(0)
 const questionCount = ref(0)
@@ -21,6 +22,7 @@ function toggleScoreVisible() {
 onKeyStroke(['H', 'h'], toggleScoreVisible)
 
 function choose(option: number) {
+  if (isTipsVisible.value) isTipsVisible.value = false
   const correct = question.value.options[option] === question.value.answer
   lastOption.value = option
   if (correct) {
@@ -57,6 +59,7 @@ function choose(option: number) {
       <OptionCell
         class="-translate-y-full border-purple-500"
         :wrong="hasWrong && lastOption === 0"
+        :tips="isTipsVisible ? 'W ↑' : undefined"
         @click="choose(0)"
       >
         {{ question.options[0] }}
@@ -64,6 +67,7 @@ function choose(option: number) {
       <OptionCell
         class="translate-x-full border-amber-300"
         :wrong="hasWrong && lastOption === 1"
+        :tips="isTipsVisible ? 'D →' : undefined"
         @click="choose(1)"
       >
         {{ question.options[1] }}
@@ -71,6 +75,7 @@ function choose(option: number) {
       <OptionCell
         class="translate-y-full border-pink-400"
         :wrong="hasWrong && lastOption === 2"
+        :tips="isTipsVisible ? 'S ↓' : undefined"
         @click="choose(2)"
       >
         {{ question.options[2] }}
@@ -78,6 +83,7 @@ function choose(option: number) {
       <OptionCell
         class="-translate-x-full border-lime-400"
         :wrong="hasWrong && lastOption === 3"
+        :tips="isTipsVisible ? 'A ←' : undefined"
         @click="choose(3)"
       >
         {{ question.options[3] }}
@@ -93,7 +99,7 @@ function choose(option: number) {
       <div
         class="flex items-center justify-center space-x-1 text-3xl"
         :class="{
-          'opacity-0': !isScoreVisible,
+          'opacity-0': !isScoreVisible && !isTipsVisible,
         }"
       >
         <span>{{ score }}</span><span>/</span><span>{{ questionCount }}</span>
