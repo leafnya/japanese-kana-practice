@@ -2,6 +2,9 @@
 
 KanaNya 是一个为日语初学者准备的假名练习小工具，通过对平假名、片假名和罗马音选择配对来强化你的记忆。
 
+GitHub Pages:
+https://leafnya.github.io/japanese-kana-practice
+
 ## 小作文
 
 想自己去日本旅游，所以打算简单学一点日语喵。因为生活中有趣的东西太多了所以总是分心，记住了一会儿又忘记了喵。
