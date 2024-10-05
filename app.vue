@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const lastQuestion = ref<Question | null>(null)
 const question = ref(generateQuestion())
 const lastOption = ref(0)
 const hasWrong = ref(false)
@@ -9,6 +10,7 @@ function reset() {
   score.value = 0
   questionCount.value = 0
   hasWrong.value = false
+  lastQuestion.value = null
   question.value = generateQuestion()
 }
 onKeyStroke(['R', 'r'], reset)
@@ -28,6 +30,7 @@ function choose(option: number) {
     else {
       hasWrong.value = false
     }
+    lastQuestion.value = question.value
     question.value = generateQuestion()
     questionCount.value++
   }
@@ -78,6 +81,12 @@ function choose(option: number) {
       >
         {{ question.options[3] }}
       </OptionCell>
+      <div
+        v-if="lastQuestion"
+        class="absolute left-0 top-0 -translate-x-full -translate-y-full p-1.5 text-sm opacity-30"
+      >
+        {{ lastQuestion.review }}
+      </div>
     </div>
     <footer class="mb-16 mt-4 flex w-full flex-shrink flex-col items-stretch justify-center space-y-2">
       <div

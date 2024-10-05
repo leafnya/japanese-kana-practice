@@ -1,15 +1,22 @@
 import { KANA } from './constants'
 
-interface Question {
+export interface Question {
   question: string
   answer: string
   options: [string, string, string, string]
+  review: string
 }
+
+const lastQuestionRowIdx = -1
 
 export function generateQuestion(): Question {
   const questionCol = Math.floor(Math.random() * 3)
   const answerCol = (questionCol + 1 + Math.floor(Math.random() * 2)) % 3
-  const questionRow = KANA[Math.floor(Math.random() * KANA.length)]
+  let questionRowIdx = Math.floor(Math.random() * KANA.length)
+  if (questionRowIdx === lastQuestionRowIdx) {
+    questionRowIdx = (questionRowIdx + 1) % KANA.length
+  }
+  const questionRow = KANA[questionRowIdx]
   const question = questionRow[questionCol]
   const answer = questionRow[answerCol]
   const options: [string, string, string, string] = [answer, '', '', '']
@@ -25,5 +32,5 @@ export function generateQuestion(): Question {
     options[i] = getRandomOption()
   }
   options.sort(() => Math.random() - 0.5)
-  return { question, answer, options }
+  return { question, answer, options, review: questionRow.join(' ') }
 }
