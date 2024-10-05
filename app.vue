@@ -1,4 +1,10 @@
 <script setup lang="ts">
+useSeoMeta({
+  title: 'KanaNya | 日语假名练习',
+  description: 'KanaNya 是一个为日语初学者准备的假名练习小工具，通过对平假名、片假名和罗马音选择配对来强化你的记忆。',
+  keywords: '日语, 假名, 平假名, 片假名, 罗马音, 练习, 记忆, 学习, 工具, kana, japanese, hiragana, KanaNya, romaji',
+})
+
 const lastQuestion = ref<Question | null>(null)
 const question = ref(generateQuestion())
 const lastOption = ref(0)
