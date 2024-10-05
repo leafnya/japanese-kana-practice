@@ -1,75 +1,11 @@
-# Nuxt 3 Minimal Starter
+<h1 align="center">KanaNya | 日语假名练习</h1> 
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+KanaNya 是一个为日语初学者准备的假名练习小工具，通过对平假名、片假名和罗马音选择配对来强化你的记忆。
 
-## Setup
+## 小作文
 
-Make sure to install the dependencies:
+想自己去日本旅游，所以打算简单学一点日语喵。因为生活中有趣的东西太多了所以总是分心，记住了一会儿又忘记了喵。
 
-```bash
-# npm
-npm install
+做一个像游戏的记忆小工具，随手打开就可以强化一下记忆了喵！主要是给自己用，如果也能帮到你，那就太好了喵！
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+有建议都可以提出来，我会尽量改进的喵！❥(^_-)
